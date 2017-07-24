@@ -29,6 +29,8 @@ export default class App extends Component {
         <CalendarPicker
           onDateChange={this.onDateChange}
           initialDate={initialDate}
+          allowRangeSelection={true}
+          startFromMonday={true}
         />
 
         <View>
