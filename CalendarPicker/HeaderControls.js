@@ -2,6 +2,8 @@ import React, { PropTypes } from 'react';
 import {
   View,
   Text,
+  Image,
+  TouchableOpacity
 } from 'react-native';
 import { Utils } from './Utils';
 import Controls from './Controls';
@@ -31,11 +33,17 @@ export default function HeaderControls(props) {
     <View style={styles.headerWrapper}>
       <View style={styles.monthSelector}>
         <Controls
+          element={"previous"}
           label={previous}
           onPressControl={onPressPrevious}
           styles={styles.prev}
           textStyles={textStyle}
         />
+        {/* <TouchableOpacity>
+          <Image
+            source={require('./arrowLeftRound-o.png')}
+          />
+        </TouchableOpacity> */}
       </View>
       <View>
         <Text style={[styles.monthLabel, textStyle]}>
