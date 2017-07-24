@@ -18,6 +18,7 @@ export default function Controls({ styles, textStyles, label, onPressControl, el
 
   return (
     <TouchableOpacity
+      style={{ paddingTop: 10, paddingRight: 10, paddingBottom: 10, paddingLeft: 10 }}
       onPress={() => onPressControl()}
     >
       {arrow}

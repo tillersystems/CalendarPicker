@@ -30,32 +30,27 @@ export default function HeaderControls(props) {
   const year = currentYear;
 
   return (
-    <View style={styles.headerWrapper}>
-      <View style={styles.monthSelector}>
+    <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'}}>
+      <View style={{}}>
         <Controls
           element={"previous"}
           label={previous}
           onPressControl={onPressPrevious}
-          styles={styles.prev}
-          textStyles={textStyle}
+          styles={{}}
+          textStyles={{}}
         />
-        {/* <TouchableOpacity>
-          <Image
-            source={require('./arrowLeftRound-o.png')}
-          />
-        </TouchableOpacity> */}
       </View>
       <View>
         <Text style={[styles.monthLabel, textStyle]}>
            { month } { year }
         </Text>
       </View>
-      <View style={styles.monthSelector}>
+      <View style={{}}>
         <Controls
           label={next}
           onPressControl={onPressNext}
-          styles={styles.next}
-          textStyles={textStyle}
+          styles={{}}
+          textStyles={{}}
         />
       </View>
     </View>
