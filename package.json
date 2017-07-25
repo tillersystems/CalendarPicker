@@ -16,7 +16,7 @@
   "peerDependencies": {
     "babel-preset-expo": "^2.0.0"
   },
-  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "main": "./CalendarPicker",
   "scripts": {
     "start": "react-native-scripts start",
     "eject": "react-native-scripts eject",
