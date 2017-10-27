@@ -36,23 +36,6 @@ export default class CalendarPicker extends Component {
     this.handleOnPressNext = this.handleOnPressNext.bind(this);
     this.handleOnPressDay = this.handleOnPressDay.bind(this);
     this.onSwipe = this.onSwipe.bind(this);
-
-    const date = this.props.initialDate;
-    if (this.props.allowRangeSelection) {
-        const originalDayPostion = date.getDay();
-        const monday = new Date(date.getFullYear(), date.getMonth(), date.getDate() + (originalDayPostion == 0?-6:1)-originalDayPostion);
-        const sunday = new Date(date.getFullYear(), date.getMonth(), date.getDate() + (originalDayPostion == 0?0:7)-originalDayPostion);
-
-        this.setState({
-            selectedStartDate: monday,
-            selectedEndDate: sunday,
-        });
-    } else {
-        this.setState({
-          selectedStartDate: date,
-          selectedEndDate: null,
-        });
-    }
   }
 
   static defaultProps = {
