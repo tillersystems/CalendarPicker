@@ -61,7 +61,24 @@ export default class CalendarPicker extends Component {
   }
 
   componentWillMount() {
-    this.setState({...this.updateScaledStyles(this.props), ...this.updateMonthYear(this.props)});
+      const date = this.props.initialDate;
+      if (this.props.allowRangeSelection) {
+          const originalDayPostion = date.getDay();
+          const monday = new Date(date.getFullYear(), date.getMonth(), date.getDate() + (originalDayPostion == 0?-6:1)-originalDayPostion);
+          const sunday = new Date(date.getFullYear(), date.getMonth(), date.getDate() + (originalDayPostion == 0?0:7)-originalDayPostion);
+
+          this.setState({
+              ...this.state,
+              selectedStartDate: monday,
+              selectedEndDate: sunday,
+          });
+      } else {
+          this.setState({
+              selectedStartDate: date,
+              selectedEndDate: null,
+          });
+      }
+      this.setState({...this.updateScaledStyles(this.props), ...this.updateMonthYear(this.props)});
   }
 
   componentWillReceiveProps(nextProps) {
