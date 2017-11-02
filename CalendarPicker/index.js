@@ -122,8 +122,6 @@ export default class CalendarPicker extends Component {
             const date = new Date(currentYear, currentMonth, day);
             
             if (allowRangeSelection) {
-                console.log(day);
-                
                 const originalDayPostion = date.getDay();
                 
                 // get week day (starts at 0 for sunday)
