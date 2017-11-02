@@ -116,6 +116,7 @@ export default class CalendarPicker extends Component {
             const {
                 allowRangeSelection,
                 onDateChange,
+                startFromMonday
             } = this.props;
             
             const date = new Date(currentYear, currentMonth, day);
@@ -124,19 +125,24 @@ export default class CalendarPicker extends Component {
                 console.log(day);
                 
                 const originalDayPostion = date.getDay();
-                const monday = new Date(date.getFullYear(), date.getMonth(), date.getDate() + (originalDayPostion == 0?-6:1)-originalDayPostion);
-                const sunday = new Date(date.getFullYear(), date.getMonth(), date.getDate() + (originalDayPostion == 0?0:7)-originalDayPostion);
+                
+                // get week day (starts at 0 for sunday)
+                const weekDay = date.getDay();
+                const daysOffset = (startFromMonday) ? ((weekDay == 0) ? -6 : weekDay - 1) : weekDay;
+                
+                const rangeStartDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() - daysOffset);
+                const rangeEndDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() - daysOffset + 6);
                 
                 this.setState({
-                    selectedStartDate: monday,
-                    selectedEndDate: sunday,
+                    selectedStartDate: rangeStartDate,
+                    selectedEndDate: rangeEndDate,
                 });
                 
                 // propagate to parent date has changed
-                onDateChange(sunday, Utils.START_DATE);
+                onDateChange(rangeStartDate, Utils.START_DATE);
                 
                 // propagate to parent date has changed
-                onDateChange(monday, Utils.END_DATE);
+                onDateChange(rangeEndDate, Utils.END_DATE);
             } else {
                 this.setState({
                     selectedStartDate: date,
