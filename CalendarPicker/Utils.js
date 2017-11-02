@@ -45,4 +45,14 @@ export const Utils = {
         
         return false;
     },
+    
+    shiftStartOfWeek: function(weekDays, startFromMonday) {
+        if (!startFromMonday) {
+            return weekDays;
+        }
+        
+        let shiftedWeekDays = weekDays.slice(1, 7);
+        shiftedWeekDays.push(weekDays[0]);
+        return shiftedWeekDays;
+    }
 };

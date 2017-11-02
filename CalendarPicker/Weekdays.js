@@ -9,12 +9,7 @@ import { Utils } from './Utils';
 
 export default function Weekdays(props) {
     const { styles, startFromMonday, weekdays, textStyle } = props;
-    let wd = weekdays;
-    
-    
-    if (!wd) {
-        wd = startFromMonday ? Utils.WEEKDAYS_MON : Utils.WEEKDAYS; // English Week days Array
-    }
+    let wd = Utils.shiftStartOfWeek((!weekdays) ? Utils.WEEKDAYS : weekdays, startFromMonday);
     
     return (
         <View style={styles.dayLabelsWrapper}>
