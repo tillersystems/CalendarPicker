@@ -239,10 +239,10 @@ export default class CalendarPicker extends Component {
                             textStyle={textStyle} />
                         
                         <Weekdays
-                            styles={styles}
-                            startFromMonday={startFromMonday}
-                            weekdays={weekdays}
-                            textStyle={textStyle} />
+                            styles={ styles }
+                            startFromMonday={ startFromMonday }
+                            weekdays={ weekdays }
+                            textStyle={ textStyle } />
                         
                         <DaysGridView
                             month={currentMonth}
